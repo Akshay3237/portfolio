@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Directory</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #1e293b;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            width: 320px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #38bdf8;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 1rem;
+        }
+        .main-item {
+            cursor: pointer;
+            padding: 1rem;
+            background: #334155;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-item:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+        .main-item::after {
+            content: '▼';
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+        .main-item.open::after {
+            transform: rotate(180deg);
+        }
+        .sub-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+            display: none;
+            overflow: hidden;
+            border-left: 2px solid #334155;
+            margin-left: 1rem;
+            padding-left: 0.5rem;
+        }
+        .sub-list.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .sub-item {
+            margin-bottom: 0.5rem;
+        }
+        .sub-item:last-child {
+            margin-bottom: 0;
+        }
+        .sub-item a {
+            display: block;
+            padding: 0.7rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .sub-item a:hover {
+            color: #ffffff;
+            background: #38bdf8;
+            padding-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Portfolios</h1>
+        <ul>
+            <li>
+                <div class="main-item" onclick="toggleSubList(this, 'doctor')">Doctor</div>
+                <ul class="sub-list" id="doctor-list">
+                    <li class="sub-item"><a href="doctor/basic/index.html">Basic</a></li>
+                    <li class="sub-item"><a href="doctor/standard/index.html">Standard</a></li>
+                    <li class="sub-item"><a href="doctor/premium/index.html">Premium</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="main-item" onclick="toggleSubList(this, 'goldman')">Goldman</div>
+                <ul class="sub-list" id="goldman-list">
+                    <li class="sub-item"><a href="goldman/basic/index.html">Basic</a></li>
+                    <li class="sub-item"><a href="goldman/standard/index.html">Standard</a></li>
+                    <li class="sub-item"><a href="goldman/premium/index.html">Premium</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleSubList(element, id) {
+            element.classList.toggle('open');
+            const list = document.getElementById(id + '-list');
+            list.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
