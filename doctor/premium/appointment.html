@@ -10,17 +10,17 @@
     <style>
         .form-container {
             background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
             border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
             padding: 3rem;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-card);
             max-width: 800px;
             margin: -5rem auto 5rem auto;
             position: relative;
             z-index: 10;
         }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+        .form-group { margin-bottom: 1.5rem; }
         .form-label {
             display: block;
             margin-bottom: 0.5rem;
@@ -29,18 +29,22 @@
         }
         .form-control {
             width: 100%;
-            padding: 0.75rem 1rem;
+            padding: 0.875rem 1rem;
+            background: rgba(0,0,0,0.2);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
             font-family: var(--font-body);
             font-size: 1rem;
+            color: var(--text-main);
             transition: all 0.3s ease;
         }
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-light);
+            box-shadow: var(--shadow-glow);
+            background: rgba(0,0,0,0.4);
         }
+        .form-control option { background: var(--bg-main); color: var(--text-main); }
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -68,20 +72,33 @@
                 <a href="admin.html">Admin</a>
             </nav>
             <div style="display: flex; gap: 1rem; align-items: center;">
-                <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
-                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                <a href="appointment.html" class="btn btn-primary header-book-btn">Book Appointment</a>
+                <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
 
-    <section class="hero" style="padding: 6rem 0 10rem 0; text-align: center;">
-        <div class="container relative z-10">
-            <h1 class="hero-title" style="font-size: 3rem;">Book Your <span>Appointment</span></h1>
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-drawer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Doctors</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin</a>
+        <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+    </div>
+
+    <section class="hero" style="padding: 10rem 0 10rem 0; text-align: center; min-height: auto;">
+        <div class="container relative z-10 animate-on-scroll">
+            <h1 class="hero-title">Book Your <span class="text-gradient">Appointment</span></h1>
             <p class="hero-subtitle">Fast, easy, and secure online booking.</p>
         </div>
     </section>
 
-    <div class="container">
+    <div class="container animate-on-scroll">
         <div class="form-container">
             <form id="appointmentForm">
                 <div class="form-row">
@@ -135,19 +152,12 @@
                     <textarea name="notes" class="form-control" rows="4" placeholder="Briefly describe your symptoms or reason for visit..."></textarea>
                 </div>
                 
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; border-radius: var(--radius-md);">
                     Confirm Booking
                 </button>
             </form>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>&copy; 2026 MediCare+. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script src="js/main.js"></script>
 </body>
