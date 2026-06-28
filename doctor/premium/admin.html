@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | MediCare+</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .admin-layout {
+            display: flex;
+            min-height: calc(100vh - 80px);
+            background: #f1f5f9;
+        }
+        .sidebar {
+            width: 250px;
+            background: white;
+            border-right: 1px solid var(--border);
+            padding: 2rem 0;
+        }
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .sidebar-menu a {
+            padding: 1rem 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: var(--primary-light);
+            color: var(--primary);
+            border-right: 3px solid var(--primary);
+        }
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .stat-card .icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .stat-card p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .table-container {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .status-pending { background: #fef3c7; color: #d97706; }
+        .status-confirmed { background: #dcfce7; color: #166534; }
+        .status-cancelled { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body id="adminDashboard">
+
+    <header>
+        <div class="container nav-container" style="max-width: 100%;">
+            <a href="index.html" class="logo"><i class="fas fa-heartbeat"></i> MediCare<span class="text-primary">+</span> Admin</a>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="index.html" class="btn btn-outline">Back to Site</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <div class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" class="active"><i class="fas fa-calendar-check"></i> Appointments</a>
+                <a href="#"><i class="fas fa-users"></i> Patients</a>
+                <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2>Dashboard Overview</h2>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon"><i class="fas fa-user-injured"></i></div>
+                    <div>
+                        <h3 id="statTotalPatients">--</h3>
+                        <p>Total Patients</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon"><i class="fas fa-calendar-plus"></i></div>
+                    <div>
+                        <h3 id="statUpcoming">--</h3>
+                        <p>Upcoming Appointments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <div>
+                        <h3 id="statSatisfaction">--</h3>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-bottom: 1rem;">Recent Appointments</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient Name</th>
+                            <th>Date & Time</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentsTableBody">
+                        <tr>
+                            <td colspan="6" class="text-center">Loading appointments...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
