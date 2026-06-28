@@ -3,10 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team | MediCare+</title>
+    <title>Our Doctors | MediCare+</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .team-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-glow);
+        }
+        .team-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+        .team-info {
+            padding: 2rem;
+        }
+        .team-info h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .team-info p { color: var(--primary); font-weight: 500; margin-bottom: 1rem; }
+    </style>
 </head>
 <body>
     <header>
@@ -23,15 +55,63 @@
                 <a href="admin.html">Admin</a>
             </nav>
             <div style="display: flex; gap: 1rem; align-items: center;">
-                <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+                <a href="appointment.html" class="btn btn-primary header-book-btn">Book Appointment</a>
+                <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
-    <section class="section-padding text-center">
-        <div class="container">
-            <h1 class="section-title">Meet Our Doctors</h1>
-            <p class="text-muted" style="max-width: 600px; margin: 0 auto;">World-class specialists ready to care for you.</p>
+
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-drawer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html" class="active">Doctors</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin</a>
+        <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+    </div>
+
+    <section class="hero" style="padding: 10rem 0 5rem 0; min-height: auto;">
+        <div class="container text-center animate-on-scroll">
+            <h1 class="hero-title">Meet Our <span class="text-gradient">Specialists</span></h1>
+            <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">World-renowned doctors dedicated to providing the highest standard of care.</p>
         </div>
     </section>
+
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container animate-on-scroll">
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80" alt="Dr. Sarah Johnson">
+                    <div class="team-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Head of Cardiology</p>
+                        <a href="appointment.html" class="btn btn-outline" style="width: 100%;">Book Visit</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=500&q=80" alt="Dr. Michael Chen">
+                    <div class="team-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p>Lead Neurologist</p>
+                        <a href="appointment.html" class="btn btn-outline" style="width: 100%;">Book Visit</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1594824432258-29806ee37b77?auto=format&fit=crop&w=500&q=80" alt="Dr. Emily Williams">
+                    <div class="team-info">
+                        <h3>Dr. Emily Williams</h3>
+                        <p>Pediatric Specialist</p>
+                        <a href="appointment.html" class="btn btn-outline" style="width: 100%;">Book Visit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

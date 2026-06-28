@@ -23,15 +23,61 @@
                 <a href="admin.html">Admin</a>
             </nav>
             <div style="display: flex; gap: 1rem; align-items: center;">
-                <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+                <a href="appointment.html" class="btn btn-primary header-book-btn">Book Appointment</a>
+                <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
-    <section class="section-padding text-center">
-        <div class="container">
-            <h1 class="section-title">Patient Testimonials</h1>
-            <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Read what our patients have to say about their experiences.</p>
+
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-drawer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Doctors</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin</a>
+        <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+    </div>
+
+    <section class="hero" style="padding: 10rem 0 5rem 0; min-height: auto;">
+        <div class="container text-center animate-on-scroll">
+            <h1 class="hero-title">Patient <span class="text-gradient">Testimonials</span></h1>
+            <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Read stories of recovery, comfort, and premium care from our wonderful patients.</p>
         </div>
     </section>
+
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container animate-on-scroll">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: var(--bg-card); backdrop-filter: var(--glass-blur); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+                    <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; font-style: italic;">"The level of care at MediCare+ is simply unmatched. The staff is incredibly attentive, and the facilities feel more like a luxury hotel than a hospital."</p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background: #ddd; overflow: hidden;"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Patient"></div>
+                        <div>
+                            <h4 style="font-size: 1.1rem;">Emma Thompson</h4>
+                            <div style="color: var(--accent); font-size: 0.8rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: var(--bg-card); backdrop-filter: var(--glass-blur); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+                    <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; font-style: italic;">"From the moment I walked in, I knew I was in good hands. The doctors are brilliant and take the time to actually listen to your concerns."</p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background: #ddd; overflow: hidden;"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Patient"></div>
+                        <div>
+                            <h4 style="font-size: 1.1rem;">James Wilson</h4>
+                            <div style="color: var(--accent); font-size: 0.8rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -7,6 +7,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-card);
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(11,15,25,0.9), transparent);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+    </style>
 </head>
 <body>
     <header>
@@ -23,15 +56,63 @@
                 <a href="admin.html">Admin</a>
             </nav>
             <div style="display: flex; gap: 1rem; align-items: center;">
-                <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+                <a href="appointment.html" class="btn btn-primary header-book-btn">Book Appointment</a>
+                <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
-    <section class="section-padding text-center">
-        <div class="container">
-            <h1 class="section-title">Hospital Gallery</h1>
-            <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Take a look at our state-of-the-art facilities.</p>
+
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-drawer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Doctors</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin</a>
+        <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+    </div>
+
+    <section class="hero" style="padding: 10rem 0 5rem 0; min-height: auto;">
+        <div class="container text-center animate-on-scroll">
+            <h1 class="hero-title">Facility <span class="text-gradient">Gallery</span></h1>
+            <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Take a virtual tour of our premium state-of-the-art medical facilities.</p>
         </div>
     </section>
+
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container animate-on-scroll">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Hospital Exterior">
+                    <div class="gallery-overlay"><h4>Main Campus</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1538108149393-cebb47ac79db?auto=format&fit=crop&w=800&q=80" alt="Operating Room">
+                    <div class="gallery-overlay"><h4>Advanced Surgical Suites</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=800&q=80" alt="Patient Room">
+                    <div class="gallery-overlay"><h4>Premium Patient Suites</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80" alt="Laboratory">
+                    <div class="gallery-overlay"><h4>Research Laboratory</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="Reception">
+                    <div class="gallery-overlay"><h4>Lounge & Reception</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1632833239869-a37e3a5806d2?auto=format&fit=crop&w=800&q=80" alt="Consultation">
+                    <div class="gallery-overlay"><h4>Private Consultation Rooms</h4></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

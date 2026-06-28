@@ -23,15 +23,57 @@
                 <a href="admin.html">Admin</a>
             </nav>
             <div style="display: flex; gap: 1rem; align-items: center;">
-                <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+                <a href="appointment.html" class="btn btn-primary header-book-btn">Book Appointment</a>
+                <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
-    <section class="section-padding text-center">
-        <div class="container">
-            <h1 class="section-title">About Our Hospital</h1>
-            <p class="text-muted" style="max-width: 600px; margin: 0 auto;">We have been providing world-class healthcare for over 20 years, focusing on patient comfort and medical excellence.</p>
+
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-drawer">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Doctors</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin</a>
+        <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+    </div>
+
+    <section class="hero" style="padding: 10rem 0 5rem 0; min-height: auto;">
+        <div class="container text-center animate-on-scroll">
+            <h1 class="hero-title">About <span class="text-gradient">MediCare+</span></h1>
+            <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Pioneering the future of healthcare through technology, compassion, and unparalleled medical expertise.</p>
         </div>
     </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Hospital Building" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-card);">
+                </div>
+                <div class="animate-on-scroll">
+                    <h2 class="text-gradient" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Our Mission</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.1rem;">To deliver world-class medical care with a deeply human touch. We believe that premium healthcare should be an experience that comforts, heals, and inspires.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem;">Founded in 2010, MediCare+ has grown into a leading institution recognized globally for its excellence in patient care, cutting-edge research, and state-of-the-art facilities.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h3 class="text-primary" style="font-size: 2rem; margin-bottom: 0.5rem;">20+</h3>
+                            <p class="text-muted">Years Experience</p>
+                        </div>
+                        <div>
+                            <h3 class="text-primary" style="font-size: 2rem; margin-bottom: 0.5rem;">50k+</h3>
+                            <p class="text-muted">Happy Patients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
