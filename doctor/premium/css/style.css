@@ -469,4 +469,18 @@ footer {
     .hero-title {
         font-size: 2.5rem;
     }
+
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-container > div > a.btn-primary {
+        display: none;
+    }
 }
