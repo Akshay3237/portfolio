@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Templates - Portfolio</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --text: #f8fafc;
+            --primary: #3b82f6;
+            --card-bg: #1e293b;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        .card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        .premium {
+            background: linear-gradient(135deg, #1e293b 0%, #170f2f 100%);
+            border-color: #8b5cf6;
+        }
+        .premium h2 {
+            color: #a78bfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Doctor Website Templates</h1>
+        <p>Select a template version to view the demo</p>
+        
+        <div class="grid">
+            <a href="basic/index.html" class="card">
+                <h2>Basic Version</h2>
+                <p>Simple and clean HTML/CSS template (5 pages).</p>
+            </a>
+            
+            <a href="standard/index.html" class="card">
+                <h2>Standard Version</h2>
+                <p>Enhanced design with more features and 8 pages.</p>
+            </a>
+            
+            <a href="premium/index.html" class="card premium">
+                <h2>Premium Version ✨</h2>
+                <p>High-end aesthetic, fully dynamic features, API ready, Admin Dashboard, and 10 pages.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
